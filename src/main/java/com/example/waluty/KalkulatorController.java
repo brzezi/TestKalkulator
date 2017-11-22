@@ -1,6 +1,7 @@
 package com.example.waluty;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +26,18 @@ public class KalkulatorController {
     }
 
     @RequestMapping("/dodaj")
-    @ResponseBody
-    String dodaj(@RequestParam(value="a") Long a, @RequestParam(value="b") Long b) {
+    String dodaj(@RequestParam(value="a") Long a, @RequestParam(value="b") Long b, Model model) {
+        model.addAttribute("a", a);
+        model.addAttribute("b", b);
+        model.addAttribute("wynik", a+b);
 
-        return String.format("Wynik2 %d + %d = %d", a, b, a+b);
+        return "kalkulator";
+    }
+
+
+
+    @RequestMapping("/kalkulator")
+    String kalkulator(Model model) {
+        return "kalkulator";
     }
 }

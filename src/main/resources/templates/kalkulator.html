@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <form action="dodaj">
+        <input type="number" name="a" th:value="${a}"/> + <input type="number" name="b" th:value="${b}"/> <input type="submit" value="Oblicz"/>
+    </form>
+    <p>Wynk: <span th:text="${wynik}?: '(brak)'" /></p>
+    <p th:text="${wynik}">Wynik!</p>
+</body>
+</html>
