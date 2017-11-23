@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-public class CurrencyExchange {
+public class CurrencyExchangeController {
     @Autowired
     NBPService nbpService;
 
