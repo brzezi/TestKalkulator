@@ -2,9 +2,7 @@ package com.example.waluty;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,20 +22,16 @@ class Rate{
     }
 }
 
-@Controller
-public class Kantor {
+@Service
+public class NBPService {
     private String rateTableUrl = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    @RequestMapping("/tabela")
-    String table(Model model) throws IOException {
+    List<Rate> listRates() throws IOException {
         String str = new Scanner(new URL(rateTableUrl).openStream(), "UTF-8").useDelimiter("\\A").next();
 
         ObjectMapper mapper = new ObjectMapper();
         JsonNode json = mapper.readTree(str).get(0);
 
-
-
-        JsonNode date = json.get("effectiveDate");
         JsonNode ratesJson = json.get("rates");
 
         List<Rate> rates = new ArrayList<>();
@@ -49,9 +43,6 @@ public class Kantor {
             rates.add(new Rate(currency, code, rate));
         });
 
-
-        model.addAttribute("rates", rates);
-
-        return "tabela";
+        return rates;
     }
 }
