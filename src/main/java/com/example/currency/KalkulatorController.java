@@ -1,4 +1,4 @@
-package com.example.waluty;
+package com.example.currency;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

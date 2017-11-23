@@ -1,5 +1,7 @@
-package com.example.waluty;
+package com.example.currency;
 
+import com.example.currency.nbp.NBPService;
+import com.example.currency.nbp.Rate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

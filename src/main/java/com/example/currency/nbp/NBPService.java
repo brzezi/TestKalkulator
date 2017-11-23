@@ -1,4 +1,4 @@
-package com.example.waluty;
+package com.example.currency.nbp;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,23 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Rate{
-    public String currency;
-    public String code;
-    public double rate;
-
-    public Rate(String currency, String code, double rate){
-        this.currency = currency;
-        this.code = code;
-        this.rate = rate;
-    }
-}
-
 @Service
 public class NBPService {
     private String rateTableUrl = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    List<Rate> listRates() throws IOException {
+    public List<Rate> listRates() throws IOException {
         String str = new Scanner(new URL(rateTableUrl).openStream(), "UTF-8").useDelimiter("\\A").next();
 
         ObjectMapper mapper = new ObjectMapper();

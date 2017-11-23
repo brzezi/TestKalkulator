@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Currency list</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <!--<form action="dodaj">-->
+        <!--<input type="number" name="a" th:value="${a}"/> + <input type="number" name="b" th:value="${b}"/> <input type="submit" value="Oblicz"/>-->
+    <!--</form>-->
+    <!--<p>Wynk: <span th:text="${wynik}?: '(brak)'" /></p>-->
+    <!--<p th:text="${wynik}">Wynik!</p>-->
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="rate : ${rates}">
+                <td th:text="${rate.id}"/>
+                <td th:text="${rate.name}"/>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
