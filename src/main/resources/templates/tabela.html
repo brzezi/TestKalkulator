@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tabela kursów</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Waluta</th>
+        <th>Kod</th>
+        <th>Kurs</th>
+    </tr>
+    <tr th:each="rate : ${rates}">
+        <td th:text="${rate.currency}"/>
+        <td th:text="${rate.code}"/>
+        <td th:text="${rate.rate}"/>
+    </tr>
+</table>
+</body>
+</html>
